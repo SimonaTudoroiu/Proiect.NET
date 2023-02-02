@@ -1,4 +1,5 @@
-﻿using Project_Tudoroiu_Simona_251.Models.DTOs.Address;
+﻿using Project_Tudoroiu_Simona_251.Models;
+using Project_Tudoroiu_Simona_251.Models.DTOs.Address;
 
 namespace Project_Tudoroiu_Simona_251.Services.AddressService
 {
@@ -6,6 +7,8 @@ namespace Project_Tudoroiu_Simona_251.Services.AddressService
     {
         public Task<List<AddressDTO>> GetAll();
         public Task AddAddress(AddressDTO newAddress);
-        public Task DeleteAddress(Guid addressID); 
+        public Task DeleteAddress(Guid addressID);
+        public Task<List<AddressWithUsersDTO>> GetAllWithUsers();
+        public Task<List<AddressWithOrdersDTO>> GetAllWithOrders();
     }
 }

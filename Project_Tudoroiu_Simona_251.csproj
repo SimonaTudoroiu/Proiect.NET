@@ -7,6 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\OrderService\**" />
+    <Content Remove="Services\OrderService\**" />
+    <EmbeddedResource Remove="Services\OrderService\**" />
+    <None Remove="Services\OrderService\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Services\OrderService\IOrderService.cs" />
+    <Compile Include="Services\OrderService\OrderService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
