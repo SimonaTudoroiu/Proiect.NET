@@ -10,5 +10,6 @@ namespace Project_Tudoroiu_Simona_251.Services.AddressService
         public Task DeleteAddress(Guid addressID);
         public Task<List<AddressWithUsersDTO>> GetAllWithUsers();
         public Task<List<AddressWithOrdersDTO>> GetAllWithOrders();
+        public Task UpdateByUsername(string username, AddressDTO address);
     }
 }

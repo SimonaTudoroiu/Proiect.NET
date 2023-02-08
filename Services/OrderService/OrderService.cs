@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Project_Tudoroiu_Simona_251.Models;
 using Project_Tudoroiu_Simona_251.Models.DTOs.Order;
 using Project_Tudoroiu_Simona_251.Repositories.OrderRepository;
 
@@ -39,6 +40,14 @@ namespace Project_Tudoroiu_Simona_251.Services.OrderService
         {
             var orders = await _orderRepository.GetOrdersWithProducts();
             return _mapper.Map<List<OrderWithProductsDTO>>(orders);
+        }
+
+        public async Task UpdateByPlacingDate(DateTime placingDate, OrderDTO order)
+        {
+            var orderToUpdate = _orderRepository.FindByPlacingDate(placingDate);
+            orderToUpdate = _mapper.Map<Order>(order);
+            _orderRepository.Update(orderToUpdate);
+            await _orderRepository.SaveAsync();
         }
     }
 }

@@ -46,5 +46,13 @@ namespace Project_Tudoroiu_Simona_251.Services.AddressService
             var addresses = await _addressRepository.GetAddressesWithOrders();
             return _mapper.Map<List<AddressWithOrdersDTO>>(addresses);
         }
+        public async Task UpdateByUsername(string username, AddressDTO address)
+        {
+            var addressToUpdate = _addressRepository.FindByUsername(username);
+            addressToUpdate = _mapper.Map<Address>(address);
+            _addressRepository.Update(addressToUpdate);
+            await _addressRepository.SaveAsync();
+
+        }
     }
 }

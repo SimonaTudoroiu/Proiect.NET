@@ -10,7 +10,7 @@ namespace Project_Tudoroiu_Simona_251.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Address> Addresses { get; set; }
-        //public DbSet<ProductInOrder> ProductsInOrder { get; set; }
+        public DbSet<ProductInOrder> ProductsInOrder { get; set; }
 
         public ProjectContext(DbContextOptions<ProjectContext> options) : base(options) { 
         

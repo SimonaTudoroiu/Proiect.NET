@@ -8,5 +8,6 @@ namespace Project_Tudoroiu_Simona_251.Services.OrderService
         public Task AddOrder(OrderDTO orderDTO);
         public Task DeleteOrderByPlacingDate(DateTime placingDate);
         public Task<List<OrderWithProductsDTO>> GetAllWithProducts();
+        public Task UpdateByPlacingDate(DateTime placingDate, OrderDTO order);
     }
 }

@@ -7,7 +7,7 @@ namespace Project_Tudoroiu_Simona_251.Repositories.OrderRepository
     {
         public Task<List<Order>> GetOrdersWithUsers();
         public Task<List<Order>> GetOrdersWithAddresses();
-        Order FindByPlacingDate(DateTime placingDate);
+        public Order FindByPlacingDate(DateTime placingDate);
         public Task<List<Order>> GetOrdersWithProducts();
     }
 }

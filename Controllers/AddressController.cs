@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Azure.Identity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Project_Tudoroiu_Simona_251.Models.DTOs.Address;
 using Project_Tudoroiu_Simona_251.Services.AddressService;
@@ -19,11 +20,22 @@ namespace Project_Tudoroiu_Simona_251.Controllers
         {
             return Ok(await _addressService.GetAll());
         }
-
+        [HttpGet("withUsers")]
+        public async Task<IActionResult> GetAllAddressesWithUsers()
+        {
+            return Ok(await _addressService.GetAllWithUsers());
+        }
         [HttpPost]
         public async Task<IActionResult> AddAddress(AddressDTO newAddress)
         {
             await this._addressService.AddAddress(newAddress);
+            return Ok();
+        }
+
+        [HttpPut("{username}")]
+        public async Task<IActionResult> UpdateAddress([FromRoute] string username, [FromBody] AddressDTO newAddress)
+        {
+            await this._addressService.UpdateByUsername(username, newAddress);
             return Ok();
         }
         [HttpDelete("{addressId}")]

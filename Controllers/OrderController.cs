@@ -27,6 +27,12 @@ namespace Project_Tudoroiu_Simona_251.Controllers
             await this._orderService.AddOrder(newOrder);
             return Ok();
         }
+        [HttpPut("{placingDate}")]
+        public async Task<IActionResult> UpdateOrder([FromRoute] DateTime placingDate, [FromBody] OrderDTO newAddress)
+        {
+            await this._orderService.UpdateByPlacingDate(placingDate, newAddress);
+            return Ok();
+        }
 
         [HttpDelete("{placingDate}")]
         public async Task<IActionResult> DeleteAddressByPlacingDate([FromRoute] DateTime placingDate)

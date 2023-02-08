@@ -14,6 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\ProductsController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="Services\OrderService\IOrderService.cs" />
     <Compile Include="Services\OrderService\OrderService.cs" />
   </ItemGroup>

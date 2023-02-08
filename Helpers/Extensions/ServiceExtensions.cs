@@ -30,7 +30,7 @@ namespace Project_Tudoroiu_Simona_251.Helpers.Extensions
         {
             services.AddTransient<IAddressService, AddressService>();
             services.AddTransient<IOrderService, OrderService>();
-            //services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IProductService, ProductService>();
             //services.AddTransient<IPromotionService, PromotionService>();
             //services.AddTransient<IUserService, UserService>();
 

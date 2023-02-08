@@ -9,9 +9,9 @@ namespace Project_Tudoroiu_Simona_251.Repositories.ProductRepository
     public class ProductRepository : GenericRepository<Product>, IProductRepository
     {
         public ProductRepository(ProjectContext countext) : base(countext) { }
-        public async Task<List<Product>> GetProductsWithPromotions()
+        public  List<Product> GetProductsWithPromotions()
         {
-            return await _table.Include(x => x.Promotions).ToListAsync();
+            return  _table.Include(x => x.Promotions).GroupBy(x => x.Type).SelectMany(obj => obj).ToList();
         }
         public Product FindByName(string name)
         {
@@ -25,13 +25,13 @@ namespace Project_Tudoroiu_Simona_251.Repositories.ProductRepository
         {
             return _table.FirstOrDefault(x => x.Name == name).AmountAvailable;
         }
-        public async Task<List<Product>> GetProductsWithTypes(List<ProductType> types)
+        public async Task<List<Product>> GetProductsByTypes(List<ProductType> types)
         {
-            return await _table.Where(x => types.Contains(x.Type)).ToListAsync();
+            return await _table.Where(x => types.Contains(x.Type)).OrderBy(x => x.AmountAvailable).ToListAsync();
         }
-        public async Task<List<Product>> GetProductsWithBeautyTypes(List<ProductTypeBeauty?> types)
+        public async Task<List<Product>> GetProductsByBeautyTypes(List<ProductTypeBeauty?> types)
         {
-            return await _table.Where(x => types.Contains(x.TypeBeauty)).ToListAsync(); 
+            return await _table.Where(x => types.Contains(x.TypeBeauty)).OrderBy(x => x.AmountAvailable).ToListAsync(); 
         }
     }
 }
