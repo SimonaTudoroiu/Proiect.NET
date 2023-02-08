@@ -18,7 +18,7 @@ namespace Project_Tudoroiu_Simona_251.Repositories.GenericRepository
         //Get all
         public async Task<List<TEntity>> GetAll()
         {
-            return await _table.AsNoTracking().ToListAsync();
+            return _table.AsNoTracking().ToList();
         }
         
         public IQueryable<TEntity> GetAllAsQueryable()

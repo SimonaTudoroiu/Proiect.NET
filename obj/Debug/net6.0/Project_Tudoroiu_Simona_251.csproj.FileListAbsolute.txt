@@ -87,3 +87,4 @@ C:\Users\Simona\Desktop\Proiect.NET\Project_Tudoroiu_Simona_251\obj\Debug\net6.0
 C:\Users\Simona\Desktop\Proiect.NET\Project_Tudoroiu_Simona_251\obj\Debug\net6.0\Project_Tudoroiu_Simona_251.pdb
 C:\Users\Simona\Desktop\Proiect.NET\Project_Tudoroiu_Simona_251\obj\Debug\net6.0\Project_Tudoroiu_Simona_251.genruntimeconfig.cache
 C:\Users\Simona\Desktop\Proiect.NET\Project_Tudoroiu_Simona_251\obj\Debug\net6.0\ref\Project_Tudoroiu_Simona_251.dll
+C:\Users\Simona\Desktop\Proiect.NET\Project_Tudoroiu_Simona_251\bin\Debug\net6.0\BCrypt.Net-Core.dll

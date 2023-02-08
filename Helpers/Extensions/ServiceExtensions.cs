@@ -1,4 +1,5 @@
-﻿using Project_Tudoroiu_Simona_251.Repositories.AdressRepository;
+﻿using Project_Tudoroiu_Simona_251.Helpers.JwtToken;
+using Project_Tudoroiu_Simona_251.Repositories.AdressRepository;
 using Project_Tudoroiu_Simona_251.Repositories.OrderRepository;
 using Project_Tudoroiu_Simona_251.Repositories.ProductInOrderRepository;
 using Project_Tudoroiu_Simona_251.Repositories.ProductRepository;
@@ -31,8 +32,15 @@ namespace Project_Tudoroiu_Simona_251.Helpers.Extensions
             services.AddTransient<IAddressService, AddressService>();
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IProductService, ProductService>();
-            //services.AddTransient<IPromotionService, PromotionService>();
-            //services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IPromotionService, PromotionService>();
+            services.AddTransient<IUserService, UserService>();
+
+            return services;
+        }
+
+        public static IServiceCollection AddUtils(this IServiceCollection services)
+        {
+            services.AddScoped<IJwtUtils, JwtUtils.JwtUtils>();
 
             return services;
         }

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Project_Tudoroiu_Simona_251.Data;
+using Project_Tudoroiu_Simona_251.Helpers;
 using Project_Tudoroiu_Simona_251.Helpers.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddRepositories();
 builder.Services.AddServices();
+builder.Services.AddUtils();
+
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
