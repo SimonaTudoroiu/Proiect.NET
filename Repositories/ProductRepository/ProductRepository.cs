@@ -9,9 +9,20 @@ namespace Project_Tudoroiu_Simona_251.Repositories.ProductRepository
     public class ProductRepository : GenericRepository<Product>, IProductRepository
     {
         public ProductRepository(ProjectContext countext) : base(countext) { }
-        public  List<Product> GetProductsWithPromotions()
+        public  List<List<Product>> GetProducts()
         {
-            return  _table.Include(x => x.Promotions).GroupBy(x => x.Type).SelectMany(obj => obj).ToList();
+            //return  _table.Include(x => x.Promotions).GroupBy(x => x.Type).SelectMany(obj => obj).ToList();
+            var productsGrouped = from product in _table
+                           group product by product.Type;
+            var productsList = new List<List<Product>>();
+
+            foreach (var type in productsGrouped)
+            {
+                var tempList = new List<Product>();
+                tempList.AddRange(type);
+                productsList.Add(tempList);
+            }
+            return productsList;
         }
         public Product FindByName(string name)
         {

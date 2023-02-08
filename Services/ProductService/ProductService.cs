@@ -23,6 +23,11 @@ namespace Project_Tudoroiu_Simona_251.Services.ProductService
             return _mapper.Map<List<ProductDTO>>(products);
         }
 
+        public async Task<List<ProductDTO>> GetAllGroupedByTypes()
+        {
+            var products = _productRepository.GetProducts();
+            return _mapper.Map<List<ProductDTO>>(products);
+        }
         public async Task DeleteProductByName(string productName)
         {
             var productToDelete = _productRepository.FindByName(productName);

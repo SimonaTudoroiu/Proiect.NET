@@ -7,7 +7,7 @@ namespace Project_Tudoroiu_Simona_251.Repositories.ProductRepository
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
-        public List<Product> GetProductsWithPromotions();
+        public List<List<Product>> GetProducts();
         public Product FindByName(string name);
         public string FindDescriptionByName(string name);
         public int FindAmountAvailableByName(string name);

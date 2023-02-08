@@ -21,6 +21,12 @@ namespace Project_Tudoroiu_Simona_251.Controllers
         {
             return Ok(await _productService.GetAll());
         }
+        
+        [HttpGet("grouped")]
+        public async Task<IActionResult> GetAllProductsGrouped()
+        {
+            return Ok(_productService.GetAllGroupedByTypes());
+        }
         [HttpGet("byTypes")]
         public async Task<IActionResult> GetAllProductsByTypes([FromQuery] List<ProductType> types)
         {

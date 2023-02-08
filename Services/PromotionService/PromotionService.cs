@@ -19,11 +19,12 @@ namespace Project_Tudoroiu_Simona_251.Services.PromotionService
             _mapper = mapper;
         }
 
-        public async Task<List<PromotionDTO>> GetAll()
+        public async Task<List<PromotionDTO>> GetAllWithPromotions()
         {
-            var promotions = await _promotionRepository.GetAll();
+            var promotions = await _promotionRepository.GetPromotionsWithProducts();
             return _mapper.Map<List<PromotionDTO>>(promotions);
         }
+
         public DateTime FindFirstDayOfPromotionByProductName(string productName)
         {
             var product = _productRepository.FindByName(productName);

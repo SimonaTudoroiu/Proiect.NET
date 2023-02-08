@@ -4,7 +4,7 @@ namespace Project_Tudoroiu_Simona_251.Services.PromotionService
 {
     public interface IPromotionService
     {
-        public Task<List<PromotionDTO>> GetAll();
+        public Task<List<PromotionDTO>> GetAllWithPromotions();
         public DateTime FindFirstDayOfPromotionByProductName(string productName);
         public DateTime FindLastDayOfPromotionByProductName(string productName);
 

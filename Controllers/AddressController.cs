@@ -25,6 +25,11 @@ namespace Project_Tudoroiu_Simona_251.Controllers
         {
             return Ok(await _addressService.GetAllWithUsers());
         }
+        [HttpGet("withOrders")]
+        public async Task<IActionResult> GetAllAddressesWithOrders()
+        {
+            return Ok(await _addressService.GetAllWithOrders());
+        }
         [HttpPost]
         public async Task<IActionResult> AddAddress(AddressDTO newAddress)
         {
